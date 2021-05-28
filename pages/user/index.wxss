@@ -1,0 +1,59 @@
+.btn{
+  width: 100%;
+  height: 300rpx;
+  padding-top: 70rpx;
+}
+.userInfo{
+  width: 100%;
+  height: 400rpx;
+  background-color: #D73C3C;
+  color: #fff;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.userInfo .userurl{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50px;
+  margin: 30rpx;
+  float: left;
+}
+.userInfo .nickname{
+  line-height: 220rpx;
+  margin-left: 10rpx;
+  float: left;
+}
+.userInfo .code{
+  width: 40px;
+  float: right;
+  margin: 40px 10px;
+}
+/* 公共样式 */
+page{
+  background-color: #f6f6f6;
+}
+.current{
+  width: 90%;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+}
+.current>view{
+  width: 33.33%;
+  float: left;
+  padding: 10px 0;
+}
+.current>view image{
+  width: 45%;
+}
+/* 公共样式 end */
+.order{
+  margin-top: -60px;
+}
+.myServer{
+  width: 90%;
+  margin: 20px auto;
+  font-size: 20px;
+}

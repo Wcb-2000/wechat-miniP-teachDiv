@@ -1,0 +1,60 @@
+{
+  "pages":[
+    "pages/settlement/settlement",
+    "pages/index/index",
+    "pages/modifyAddress/modifyAddress",
+    "pages/address/address",
+    "pages/order/order",
+    "pages/collect/index",
+    "pages/detail/index",
+    "pages/request/index",
+    "pages/category/index",
+    "pages/cart/index",
+    "pages/user/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#F0C35A",
+    "navigationBarTitleText": "手把手教你Div",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true,  
+    "backgroundColor": "#000000"
+
+  },
+  "tabBar": {
+    "color": "black",
+    "selectedColor": "#ffffff",
+    "backgroundColor": "#F0C35A",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icons/home.png",
+        "selectedIconPath": "icons/shouye4.png"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "text": "分类",
+        "iconPath": "icons/category.png",
+        "selectedIconPath": "icons/category-o.png"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "讨论区",
+        "iconPath": "icons/taolun1.png",
+        "selectedIconPath": "icons/taolun2.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "icons/my.png",
+        "selectedIconPath": "icons/my-o.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
