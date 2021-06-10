@@ -9,18 +9,32 @@
            mode属性渲染
             widthFix 让图片的标签宽高 和 图片内容的宽高都等比例发生变化 -->
     <swiper autoplay indicator-dots circular="{{true}}">
-        <swiper-item wx:for="{{swiperList}}"  wx:for-item="swip" wx:for-index="id" wx:key="*this">
-            <image class="" src="{{swip}}" mode="widthFix" lazy-load="false" ></image>
+        <swiper-item wx:for="{{swiperList}}" wx:for-item="swip" wx:for-index="id" wx:key="*this">
+            <image class="" src="{{swip}}" mode="widthFix" lazy-load="false"></image>
         </swiper-item>
     </swiper>
 </view>
 <view class="list" hover-class="none">
     <view class="list1">
         <block wx:for="{{lists}}" wx:key="*this">
-            <image class="list2" src="{{item}}" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+            <image class="list2" src="{{item}}" mode="widthFix" lazy-load="false"></image>
         </block>
     </view>
 </view>
+<view class="title">
+    <a href="#">刺绣系列</a>
+    <a href="#">缝纫系列</a>
+    <a href="#">定制书籍</a>
+    <a href="#">材料选购</a>
+</view>
+
+<View></View>
+<view>
+    <video style="width: 100%;height=400px;margin:1px;"
+        src="https://ugcsjy.qq.com/uwMROfz2r57EIaQXGdGnC2dePkZaz9nvINvy8qtBz-4opyj0/szg_2842_50001_0b6bdeacyaaa4yaajexpbfpfcgodfqmqalca.f622.mp4?sdtfrom=v3010&guid=6b22b9320581d577141853ac1422745e&vkey=59E77EA02B32E8CD92A2B1985F9F0B7EA206B1EA3B68670F702144A4F0007D56CD9D8C47A3E18BDE22963C4B1B7A8CBFF4921057BAB96B3445AD169632F6A84D72E2DECF3CD041207E1ADEFEED9AAC1B6D37DEBEB6E76CBF7C6FDFB57FCAF12CB5156B31224C63823A8BBDD0F25009224772E8CC719F2E2A66586DAB51DACF03B97FB3DB0F3ACEFD&platform=2"
+        binderror="videoErrorCallback"></video>
+</view>
+
 <!-- 商品 -->
 <view class="select" wx:for="{{selectList}}" wx:key="*this">
     <image class="start" src="{{item.titleImg}}" mode="widthFix" style=" border-radius: 10rpx"></image>
@@ -39,4 +53,4 @@
     </view>
 </view>
 <!-- 商品结束 -->
-<view class="other" >更多系列商品-></view>
+<view class="other">更多系列商品-></view>

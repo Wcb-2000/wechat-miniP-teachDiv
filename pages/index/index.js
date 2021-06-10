@@ -5,25 +5,25 @@ Page({
    */
   data: {
     swiperList: [
-      "../../images/my/swiper1.png",
-      "../../images/my/swiper2.png",
-      "../../images/my/swiper3.png",
-      "../../images/my/swiper4.png"
+      "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01848f55686a9a00000127164123cc.jpg%401280w_1l_2o_100sh.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1625885201&t=7e7c170c66f47710eae1070cb9bec574",
+      "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01281255686a9a0000012716b13862.jpg%402o.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1625885295&t=6176dff9cbd15939a1ab331deab45966",
+      "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi03.c.aliimg.com%2Fimg%2Fibank%2F2014%2F906%2F017%2F1564710609_448061728.jpg&refer=http%3A%2F%2Fi03.c.aliimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1625885571&t=a10619f40d115c54e7a089b27a45f18c",
+      "https://gss0.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/w=580/sign=04b1bd4f71f082022d9291377bfafb8a/6d7124a4462309f739a8f47e700e0cf3d6cad656.jpg"
     ],
     imgHei: "",
     lists: [
-      "../../images/my/list1.png",
-      "../../images/my/list2.png",
-      "../../images/my/list3.png",
-      "../../images/my/list4.png",
+      "https://img.alicdn.com/imgextra/i4/166965498/O1CN01OfEBQW1qU8ApTDmL1_!!166965498.jpg",
+      "https://gd3.alicdn.com/imgextra/i3/2457441035/O1CN01xP7SDQ1JW4XEA8aIi_!!2457441035.jpg_400x400.jpg",
+      "https://gd4.alicdn.com/imgextra/i1/0/O1CN014rAHrR1hy3ZYWiq9d_!!0-item_pic.jpg",
+      "https://img.alicdn.com/imgextra/i2/3907876683/O1CN01DWaRHF1zErTmVGUX2_!!3907876683.jpg_430x430q90.jpg",
     ],
     //定义商品数据
     selectList: [{
         text: "更多小米手机产品",
-        titleImg: "../../images/my/select.png",
+        titleImg: "//img.alicdn.com/imgextra/i2/2467133155/O1CN019cHcM31ZB2GWYgYcw_!!2467133155.jpg_360x360Q90s50.jpg_.webp",
         goodList: [{
             id: 1,
-            image: "../../images/my/select1.jpg",
+            image: "//img.alicdn.com/imgextra/i2/2467133155/O1CN016mOyUN1ZB2GVbiUH7_!!2467133155.png_2200x2200Q50s50.jpg_.webp",
             title: "浙江队",
             desc: "CBA篮球系列比赛服",
             price: "299",
@@ -34,7 +34,7 @@ Page({
           },
           {
             id: 2,
-            image: "../../images/my/select2.jpg",
+            image: "//img.alicdn.com/imgextra/i4/2467133155/O1CN01tjvhp11ZB2Gf9aWPP_!!2467133155.jpg_2200x2200Q50s50.jpg_.webp",
             title: "北京队",
             desc: "CBA篮球系列比赛服",
             price: "299",
@@ -44,7 +44,7 @@ Page({
           },
           {
             id: 3,
-            image: "../../images/my/select3.jpg",
+            image: "//img.alicdn.com/imgextra/i2/2261828207/O1CN01gmk8w92AUr8HWqM1a_!!2261828207-0-lubanu-s.jpg_760x760Q50s50.jpg_.webp",
             title: "山西队",
             desc: "CBA篮球系列比赛服",
             price: "299",
@@ -54,7 +54,7 @@ Page({
           },
           {
             id: 4,
-            image: "../../images/my/select4.jpg",
+            image: "//img.alicdn.com/imgextra/i1/2200758550316/O1CN01oPL9Vg1EClkslIVF3_!!2200758550316.jpg_760x760Q50s50.jpg_.webp",
             title: "福建队",
             desc: "CBA篮球系列比赛服",
             price: "299",
@@ -64,7 +64,7 @@ Page({
           },
           {
             id: 5,
-            image: "../../images/my/select5.jpg",
+            image: "//img.alicdn.com/imgextra/i3/4289585626/O1CN01GF2PBp1rQkuxuUA5z_!!4289585626.jpg_760x760Q50s50.jpg_.webp",
             title: "上海队",
             desc: "CBA篮球系列比赛服",
             price: "299",
@@ -74,7 +74,7 @@ Page({
           },
           {
             id: 6,
-            image: "../../images/my/select6.jpg",
+            image: "//img.alicdn.com/imgextra/i3/2200729308104/O1CN01yVOECK29jgNmve29Y_!!2200729308104-0-lubanu-s.jpg_760x760Q50s50.jpg_.webp",
             title: "广州队",
             desc: "CBA篮球系列比赛服",
             price: "299",
@@ -87,13 +87,21 @@ Page({
 
     ]
   },
- 
-   //点击更多系列商品跳转页面
-   toCategory:function(event){
+
+  /**
+   * 当发生错误时触发error事件，event.detail = {errMsg: 'something wrong'}
+   */
+  videoErrorCallback: function (e) {
+    console.log('视频错误信息:')
+    console.log(e.detail.errMsg)
+  },
+
+  //点击更多系列商品跳转页面
+  toCategory: function (event) {
     wx.navigateTo({
       url: '/pages/category/index',
     })
-   },
+  },
 
   //点击跳转详情页
   toDetails: function (event) {
