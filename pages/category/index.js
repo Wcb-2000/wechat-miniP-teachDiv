@@ -5,101 +5,85 @@ Page({
    * 页面的初始数据
    */
   data: {
-    left: ['潮品尖货', '男鞋', '女鞋', '男装', '女装', '男童鞋', '女童鞋', '男童装', '女童装', '配件', '运动装备', '羽毛球', '乒乓球', '团购服务'],
+    left: ['刺绣', '缝纫', '定制书籍', 'diy包', '拼图', 'diy小屋', 'diy画', '手链系列', '积木', '家饰', '实用系列', '废物利用', '其他', '团购服务'],
     list: [{
-        leftlist: '潮品尖货',
+        leftlist: '刺绣',
         rightlist: [{
-            image: "../../images/my/category/chao1.jpg",
-            title: "时装周走秀款"
+            image: "//g-search1.alicdn.com/img/bao/uploaded/i4/imgextra/i1/834970155/O1CN01C3tdv41D124nLVrbQ_!!0-saturn_solar.jpg_180x180.jpg_.webp",
+            title: "挂饰刺绣教学"
           },
           {
-            image: "../../images/my/category/chao2.jpg",
-            title: "中国李宁卫衣"
-          },
-          {
-            image: "../../images/my/category/chao3.jpg",
-            title: "华晨宇同款"
-          },
-          {
-            image: "../../images/my/category/chao4.jpg",
-            title: "卫衣"
-          },
-          {
-            image: "../../images/my/category/chao5.jpg",
-            title: "T恤"
-          },
-          {
-            image: "../../images/my/category/chao6.jpg",
-            title: "绝影"
+            image: "//img.alicdn.com/imgextra/i4/2207224753476/O1CN01BNrTMx1bY3P84OfJ9_!!2207224753476.jpg_430x430q90.jpg",
+            title: "系列产品购买"
           }
         ]
       },
       {
-        leftlist: '男鞋',
+        leftlist: '缝纫',
         rightlist: [{
-            image: "../../images/my/category/nanxie1.jpg",
-            title: "跑步鞋"
+            image: "https://img.alicdn.com/imgextra/i1/2041592426/O1CN01v7B0nx1Tn9QgSgUoK_!!0-item_pic.jpg_430x430q90.jpg",
+            title: "缝纫书籍"
           },
           {
-            image: "../../images/my/category/nanxie2.jpg",
-            title: "篮球鞋"
+            image: "https://gd3.alicdn.com/imgextra/i3/56260312/O1CN01JgeWZA1EAw8ymasc3_!!56260312.jpg_400x400.jpg",
+            title: "儿童手工"
           },
           {
-            image: "../../images/my/category/nanxie3.jpg",
-            title: "运动生活鞋"
+            image: "//g-search3.alicdn.com/img/bao/uploaded/i4/i2/0/O1CN01ZgBr6Z1Bs2ePyjefP_!!0.jpg_180x180.jpg_.webp",
+            title: "洋娃娃教学"
           },
           {
-            image: "../../images/my/category/nanxie4.jpg",
-            title: "户外鞋"
+            image: "https://g-search1.alicdn.com/img/bao/uploaded/i4/i3/1718821461/O1CN01jsQkau1MfBIV8vqGw_!!1718821461.jpg_180x180.jpg_.webp",
+            title: "兔子教学"
           },
           {
-            image: "../../images/my/category/nanxie5.jpg",
-            title: "羽毛球鞋"
+            image: "https://gd4.alicdn.com/imgextra/i4/126794035/O1CN01YzjEBu1fg4kAdshpx_!!126794035.jpg_400x400.jpg",
+            title: "帆布包制作"
           },
           {
-            image: "../../images/my/category/nanxie6.jpg",
-            title: "训练鞋"
+            image: "//g-search3.alicdn.com/img/bao/uploaded/i4/i3/1718821461/O1CN01N32CQy1MfBKR4dZHI_!!1718821461.jpg_180x180.jpg_.webp",
+            title: "小黄鸭"
           },
           {
-            image: "../../images/my/category/nanxie7.jpg",
-            title: "凉鞋/拖鞋"
+            image: "//g-search2.alicdn.com/img/bao/uploaded/i4/i3/524317908/O1CN01u9kUch28HulOJtuIb_!!524317908.jpg_180x180.jpg_.webp",
+            title: "缝纫选购"
           }
         ]
       },
       {
-        leftlist: '女鞋',
+        leftlist: '定制书籍',
         rightlist: [{
-            image: "../../images/my/category/nvxie1.jpg",
-            title: "篮球鞋"
+            image: "//g-search1.alicdn.com/img/bao/uploaded/i4/i1/114094312/TB2aFv7dQ9WBuNjSspeXXaz5VXa_!!114094312.jpg_180x180.jpg_.webp",
+            title: "相册教学"
           },
           {
-            image: "../../images/my/category/nvxie2.jpg",
-            title: "跑步鞋"
+            image: "https://gd1.alicdn.com/imgextra/i3/2663861616/O1CN01EJESKs1NoAgTuTyH0_!!2663861616.jpg_400x400.jpg",
+            title: "纪念相册教程"
           },
           {
-            image: "../../images/my/category/nvxie3.jpg",
-            title: "运动生活鞋"
+            image: "//g-search3.alicdn.com/img/bao/uploaded/i4/i3/854149508/O1CN01KMaXoB2K6iTmeaEFU_!!0-item_pic.jpg_180x180.jpg_.webp",
+            title: "毕业相册教程"
           },
           {
-            image: "../../images/my/category/nvxie4.jpg",
-            title: "羽毛球鞋"
+            image: "//g-search1.alicdn.com/img/bao/uploaded/i4/i3/859515618/O1CN01Y2Cwn81rN5iJXfEFY_!!0-item_pic.jpg_180x180.jpg_.webp",
+            title: "儿童相册"
           },
           {
-            image: "../../images/my/category/nvxie5.jpg",
-            title: "乒乓球鞋"
+            image: "//g-search3.alicdn.com/img/bao/uploaded/i4/i1/2041592426/O1CN01sFTjSL1Tn9WURW6re_!!0-item_pic.jpg_180x180.jpg_.webp",
+            title: "旅行小册子"
           },
           {
-            image: "../../images/my/category/nvxie6.jpg",
-            title: "训练鞋"
+            image: "//g-search3.alicdn.com/img/bao/uploaded/i4/i2/2201484602447/O1CN01e40WjV1Twlr1ArMn5_!!0-item_pic.jpg_180x180.jpg_.webp",
+            title: "回忆录"
           },
           {
-            image: "../../images/my/category/nvxie7.jpg",
-            title: "凉鞋/拖鞋"
+            image: "//g-search3.alicdn.com/img/bao/uploaded/i4/i3/2200778412989/O1CN016rflfw1Xx0S7OiEkK_!!2200778412989.jpg_180x180.jpg_.webp",
+            title: "书籍定制"
           }
         ]
       },
       {
-        leftlist: '男装',
+        leftlist: 'diy包',
         rightlist: [{
             image: "../../images/my/category/nanzhuang1.jpg",
             title: "T恤/Polo衫/背心"
@@ -147,7 +131,7 @@ Page({
         ]
       },
       {
-        leftlist: '女装',
+        leftlist: '拼图',
         rightlist: [{
             image: "https://cdns.lining.com/postsystem/docroot/images/cate/3122D74F896516794736E139BEA24CBD.jpg",
             title: "T恤"
@@ -199,7 +183,7 @@ Page({
         ]
       },
       {
-        leftlist: '男童鞋',
+        leftlist: 'diy小屋',
         rightlist: [{
             image: "https://cdns.lining.com/postsystem/docroot/images/cate/EE7F92005FD05AA3684AAC9B5BB23A4C.jpg",
             title: "跑步鞋"
@@ -223,7 +207,7 @@ Page({
         ]
       },
       {
-        leftlist: '女童鞋',
+        leftlist: 'diy画',
         rightlist: [{
             image: "https://cdns.lining.com/postsystem/docroot/images/cate/FA3FD9AF92EE1D693FB38D5028F23F7E.jpg",
             title: "跑步鞋"
@@ -239,7 +223,7 @@ Page({
         ]
       },
       {
-        leftlist: '男童装',
+        leftlist: '手链系列',
         rightlist: [{
             image: "https://cdns.lining.com/postsystem/docroot/images/cate/32492ADA1388096CF39C501DE8F48398.jpg",
             title: "卫衣"
@@ -271,7 +255,7 @@ Page({
         ]
       },
       {
-        leftlist: '女童装',
+        leftlist: '积木',
         rightlist: [{
             image: "https://cdns.lining.com/postsystem/docroot/images/cate/0580D838AA8C419E549775033424A3AC.jpg",
             title: "卫衣"
@@ -307,7 +291,7 @@ Page({
         ]
       },
       {
-        leftlist: '配件',
+        leftlist: '家饰',
         rightlist: [{
             image: "https://cdns.lining.com/postsystem/docroot/images/cate/3D6DE266BBF26ABF451E945848383ED4.jpg",
             title: "袜子"
@@ -335,7 +319,7 @@ Page({
         ]
       },
       {
-        leftlist: '运动装备',
+        leftlist: '实用系列',
         rightlist: [{
             image: "https://cdns.lining.com/postsystem/docroot/images/cate/CC88DE23DD6F604B186509C6FB74DA96.jpg",
             title: "乒乓球装备"
@@ -355,7 +339,7 @@ Page({
         ]
       },
       {
-        leftlist: '羽毛球',
+        leftlist: '废物利用',
         rightlist: [{
             image: "https://cdns.lining.com/postsystem/docroot/images/promotion/201511/FC66873CE1758B090BEF2B3120B4AF33.jpg",
             title: "羽毛球拍"
@@ -379,7 +363,7 @@ Page({
         ]
       },
       {
-        leftlist: '乒乓球',
+        leftlist: '其他',
         rightlist: [{
             image: "https://cdns.lining.com/postsystem/docroot/images/promotion/201511/E17C6B0CBF488925055693E0B3F9A297.jpg",
             title: "乒乓球台"
@@ -440,17 +424,24 @@ Page({
     //右侧内容对应的下标值
     contentIndex: 0,
     //左边导航距离顶部位置
-    leftScrollTop:0
+    leftScrollTop: 0
 
 
   },
 
+  // 点击跳转到订单页面
+  toTeach: function (event) {
+    var index = event.target.dataset.index
+    wx.navigateTo({
+      url: '/pages/teach/teach',
+    })
+  },
   //左边导航的点击事件
   leftNavIndex: function (event) {
     var index = event.target.dataset.index
     this.setData({
       navIndex: index,
-      contentIndex:index,
+      contentIndex: index,
       leftScrollTop: 50 * (index - 4)
     })
   },
@@ -464,7 +455,7 @@ Page({
     for (let i = 0; i < list.length; i++) {
       //获取id为#scroll-的节点元素,节点信息
       wx.createSelectorQuery().select('#scroll-' + i).fields({
-        //获取节点的尺寸（宽、高）
+          //获取节点的尺寸（宽、高）
           size: true
         },
         function (res) {

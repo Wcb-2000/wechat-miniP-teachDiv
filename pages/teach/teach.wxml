@@ -1,0 +1,43 @@
+<view class="goodItem" wx:for="{{detailList}}" wx:key="*this">
+    <view>
+        <video style="width: 100%;height=400px;margin:1px;"
+            src="https://ugcws.video.gtimg.com/uwMROfz2r57EIaQXGdGnC2ddPkbJGtsAgoBvmE0AUZXs_hLe/szg_56299042_50001_9bd60fff3a3848899f355755e33cbcd9.f622.mp4?sdtfrom=v1010&guid=9e59f3a524d60be070f1ffb168eb97fd&vkey=B3195285EA6A647522524E17A6FCE39BB5E992C605C2C1D8A16AB3D95F4F73040B76BFF86BA9AC6C94BB981519A70AC9DB66F4955CF00A57A8BC722F5726B3917DE8572D018C5A248EA0AEA0388CE01FD994ABCE9BEA20966DF4CD40A164785F4E777C9CAE1C7FA58DD272E0A592F0378F461816A964A14D2B24D773CC26D9B44C8E27136DB47944"
+            binderror="videoErrorCallback"></video>
+    </view>
+    <view>刺绣系列教学视频</view>
+    <image src="//g-search1.alicdn.com/img/bao/uploaded/i4/imgextra/i1/834970155/O1CN01C3tdv41D124nLVrbQ_!!0-saturn_solar.jpg_180x180.jpg_.webp" mode="widthFix"></image>
+    <view class="title">刺绣令牌</view>
+    <view class="desc">送男友送女友必备</view>
+    <view class="price">
+        <text class="new">详情请看视频</text>
+        <text></text>
+        <!-- <text class="old">材料链接</text> -->
+    </view>
+</view>
+<!-- 底部 -->
+<view class="down">
+    <view class="left">
+        <view>
+            <image src="../../images/index.png" mode="widthFix" bindtap="toIndex"></image>
+            <view class="text">首页</view>
+        </view>
+
+        <view>
+            <image src="../../images/gouwuche.png" mode="widthFix" bindtap="toCart"></image>
+            <view class="text">购物车</view>
+            <!-- 当商品数量为0时 右上角数量隐藏 -->
+            <view class="num" wx:if="{{totalNum !=0}}">{{totalNum}}</view>
+        </view>
+        
+        <view>
+            <image src="{{collectListImg}}" mode="widthFix" bindtap="collect"></image>
+            <view class="text">{{collectListText}}</view>
+        </view>
+    </view>
+    <view class="right">
+        <view class="addCar" bindtap="collect">加入收藏</view>
+        <view class="toPay" bindtap="topay">购买材料</view>
+    </view>
+
+</view>
+<!-- 底部end -->

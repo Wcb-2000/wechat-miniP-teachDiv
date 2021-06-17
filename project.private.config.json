@@ -75,6 +75,18 @@
         {
           "name": "pages/address/address",
           "pathName": "pages/address/address",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/teach/teach",
+          "pathName": "pages/teach/teach",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/forum/forum",
+          "pathName": "pages/forum/forum",
           "scene": null
         }
       ]

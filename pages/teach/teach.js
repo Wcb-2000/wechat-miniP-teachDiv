@@ -23,7 +23,6 @@ Page({
     collectListText: "收藏"
 
   },
-
   //跳转到首页
   toIndex: function () {
     wx.switchTab({

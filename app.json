@@ -2,6 +2,8 @@
   "pages":[
     "pages/settlement/settlement",
     "pages/index/index",
+    "pages/forum/forum",
+    "pages/teach/teach",
     "pages/modifyAddress/modifyAddress",
     "pages/address/address",
     "pages/order/order",
@@ -16,7 +18,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#F0C35A",
-    "navigationBarTitleText": "手把手教你Div",
+    "navigationBarTitleText": "手把手教你DIY",
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh": true,  
     "backgroundColor": "#000000"
@@ -42,10 +44,16 @@
         "selectedIconPath": "icons/category-o.png"
       },
       {
-        "pagePath": "pages/cart/index",
+        "pagePath": "pages/forum/forum",
         "text": "讨论区",
         "iconPath": "icons/taolun1.png",
         "selectedIconPath": "icons/taolun2.png"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "购物车",
+        "iconPath": "images/car.png",
+        "selectedIconPath": "images/car1.png"
       },
       {
         "pagePath": "pages/user/index",

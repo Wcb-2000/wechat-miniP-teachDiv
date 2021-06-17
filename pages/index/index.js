@@ -19,15 +19,15 @@ Page({
     ],
     //定义商品数据
     selectList: [{
-        text: "更多小米手机产品",
+        text: "更多Diy工具",
         titleImg: "//img.alicdn.com/imgextra/i2/2467133155/O1CN019cHcM31ZB2GWYgYcw_!!2467133155.jpg_360x360Q90s50.jpg_.webp",
         goodList: [{
             id: 1,
             image: "//img.alicdn.com/imgextra/i2/2467133155/O1CN016mOyUN1ZB2GVbiUH7_!!2467133155.png_2200x2200Q50s50.jpg_.webp",
-            title: "浙江队",
-            desc: "CBA篮球系列比赛服",
-            price: "299",
-            oldPrice: "￥599",
+            title: "千愿鹤",
+            desc: "盲盒系列全套拼装玩具",
+            price: "69",
+            oldPrice: "￥138",
             num: 1,
             check: true
 
@@ -35,8 +35,8 @@ Page({
           {
             id: 2,
             image: "//img.alicdn.com/imgextra/i4/2467133155/O1CN01tjvhp11ZB2Gf9aWPP_!!2467133155.jpg_2200x2200Q50s50.jpg_.webp",
-            title: "北京队",
-            desc: "CBA篮球系列比赛服",
+            title: "千愿鹤套盒",
+            desc: "盲盒系列全套拼装玩具",
             price: "299",
             oldPrice: "￥599",
             num: 1,
@@ -45,38 +45,38 @@ Page({
           {
             id: 3,
             image: "//img.alicdn.com/imgextra/i2/2261828207/O1CN01gmk8w92AUr8HWqM1a_!!2261828207-0-lubanu-s.jpg_760x760Q50s50.jpg_.webp",
-            title: "山西队",
-            desc: "CBA篮球系列比赛服",
-            price: "299",
-            oldPrice: "￥599",
+            title: "恐龙拼装",
+            desc: "DIY系列支恐龙骨架",
+            price: "99",
+            oldPrice: "￥199",
             num: 1,
             check: true
           },
           {
             id: 4,
             image: "//img.alicdn.com/imgextra/i1/2200758550316/O1CN01oPL9Vg1EClkslIVF3_!!2200758550316.jpg_760x760Q50s50.jpg_.webp",
-            title: "福建队",
-            desc: "CBA篮球系列比赛服",
-            price: "299",
-            oldPrice: "￥599",
+            title: "diy小屋",
+            desc: "大型日式手工制作房子",
+            price: "89",
+            oldPrice: "￥139",
             num: 1,
             check: true
           },
           {
             id: 5,
             image: "//img.alicdn.com/imgextra/i3/4289585626/O1CN01GF2PBp1rQkuxuUA5z_!!4289585626.jpg_760x760Q50s50.jpg_.webp",
-            title: "上海队",
-            desc: "CBA篮球系列比赛服",
-            price: "299",
-            oldPrice: "￥599",
+            title: "定制画集",
+            desc: "亲手定制一本属于自己的画册",
+            price: "39",
+            oldPrice: "￥99",
             num: 1,
             check: true
           },
           {
             id: 6,
             image: "//img.alicdn.com/imgextra/i3/2200729308104/O1CN01yVOECK29jgNmve29Y_!!2200729308104-0-lubanu-s.jpg_760x760Q50s50.jpg_.webp",
-            title: "广州队",
-            desc: "CBA篮球系列比赛服",
+            title: "diy赛车",
+            desc: "激发儿童创造力，手动拼装套餐",
             price: "299",
             oldPrice: "￥599",
             num: 1,
@@ -88,6 +88,14 @@ Page({
     ]
   },
 
+     // 点击跳转到教学页面
+     toTeach: function (event) {
+      var index = event.target.dataset.index
+      wx.navigateTo({
+        url: '/pages/teach/teach',
+      })
+    },
+    
   /**
    * 当发生错误时触发error事件，event.detail = {errMsg: 'something wrong'}
    */

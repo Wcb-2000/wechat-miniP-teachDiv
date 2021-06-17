@@ -14,7 +14,7 @@
     <view class="rightContent" wx:for="{{list}}" wx:key="*this" id="scroll-{{index}}">
       <view class="title">/ {{item.leftlist}} /</view>
       <view class="good" wx:for="{{item.rightlist}}" wx:key="*this" wx:for-item="good">
-        <image src="{{good.image}}" mode="widthFix"></image>
+        <image src="{{good.image}}" mode="widthFix" bindtap="toTeach"></image>
         <view class="text">{{good.title}}</view>
       </view>
     </view>
