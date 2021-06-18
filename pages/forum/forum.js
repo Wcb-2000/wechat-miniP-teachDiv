@@ -22,28 +22,28 @@ Page({
       msgData: list,
       inputVal: "" //清空留言框内的内容
     });
-    /*获取storage中的所有数据*/
-    var list1 = this.data.msgData1;
-    for (var i = 0; i < list.length; i++) {
-      list1.push({
-        msg: list[i].msg
-      });
-    }
-    /*把新添加的数据添加到要存入stroage的数组中*/
-    wx.setStorage({
-      key: 'msgData1',
-      data: list1,
-    })
-    /**把数据存至stroage */
-    var that = this;
-    wx.getStorage({
-      key: 'msgData1',
-      success: function (res) {
-        that.setData({
-          msgData1: res.data
-        });
-      },
-    })
+    // /*获取storage中的所有数据*/
+    // var list1 = this.data.msgData1;
+    // for (var i = 0; i < list.length; i++) {
+    //   list1.push({
+    //     msg: list[i].msg
+    //   });
+    // }
+    // /*把新添加的数据添加到要存入stroage的数组中*/
+    // wx.setStorage({
+    //   key: 'msgData1',
+    //   data: list1,
+    // })
+    // /**把数据存至stroage */
+    // var that = this;
+    // wx.getStorage({
+    //   key: 'msgData1',
+    //   success: function (res) {
+    //     that.setData({
+    //       msgData1: res.data
+    //     });
+    //   },
+    // })
 
   },
   deleMsg(ev) {
@@ -54,14 +54,14 @@ Page({
       msgData: list
     });
   },
-  deleMsg1(ev) {
-    var list = this.data.msgData1;
-    var n = ev.target.dataset.index; //获取当前留言的index
-    list.splice(n, 1); //删除索引号为n的数据
-    this.setData({ //将所有留言更新到msgData中
-      msgData1: list
-    });
-  },
+  // deleMsg1(ev) {
+  //   var list = this.data.msgData1;
+  //   var n = ev.target.dataset.index; //获取当前留言的index
+  //   list.splice(n, 1); //删除索引号为n的数据
+  //   this.setData({ //将所有留言更新到msgData中
+  //     msgData1: list
+  //   });
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
