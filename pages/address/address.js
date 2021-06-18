@@ -50,13 +50,9 @@ this.setData({
   },
   //跳转至地址编辑页面
   modifyAddress: function (event) {
-
     var id = event.target.dataset.id;
-
     var userinfoStr = this.data.userinfos[id];
-
     var userinfo = JSON.stringify(userinfoStr);
-
     wx.navigateTo({
       url: '../modifyAddress/modifyAddress?status=modify&userinfo=' + userinfo,
     })

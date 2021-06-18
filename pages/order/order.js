@@ -107,7 +107,7 @@ Page({
       }
    },
 
-   //确认收获点击事件
+   //确认收货点击事件
    received: function (event) {
       // splice(下标值，删除个数)
       //获取下标值

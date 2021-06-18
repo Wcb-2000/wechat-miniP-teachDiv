@@ -5,7 +5,7 @@
 <view class="userInfo" wx:else>
   <image class="userurl" src="{{userUrl}}"></image>
   <view class="nickname">{{nickName}}</view>
-  <image class="code" src="../../images/erweima.png" mode="widthFix"></image>
+  <image bindtap="topic_preview" class="code" src="../../images/erweima.png" mode="widthFix"></image>
 </view>
 <!-- 用户信息 end -->
 <!-- 订单 -->

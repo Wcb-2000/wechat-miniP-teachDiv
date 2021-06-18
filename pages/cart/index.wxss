@@ -118,7 +118,7 @@ page {
 .null .toIndex {
   color: #fff;
   margin: 50rpx auto;
-  background-color: #eb4450;
+  background-color: #F0C35A;
   width: 70%;
   padding: 20rpx 0;
 }
