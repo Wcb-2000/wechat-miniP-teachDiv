@@ -1,4 +1,5 @@
 // pages/my/my.js
+const app = getApp();
 Page({
 
   /**
@@ -6,7 +7,7 @@ Page({
    */
   data: {
      // 判断用户信息和授权按钮的显示隐藏
-     canIUse: true,
+     canIUse: false,
      // 昵称
      nickName: "",
      // 头像
@@ -40,18 +41,25 @@ Page({
      complete: function(res) {},
    })
  },
-  // 授权登录的点击事件
-  bindGetUserInfo(e) {
-   //   console.log(e)
-     var nickName = e.detail.userInfo.nickName
-     var userUrl = e.detail.userInfo.avatarUrl
-     // 修改data里面的数据
-     this.setData({
-        canIUse: false,
-        userUrl: userUrl,
-        nickName: nickName
-     })
-  },
+ //获取用户信息
+ getUserProfile() {
+   wx.getUserProfile({
+     desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+     success: (res) => {
+       console.log("获取用户信息成功", res)
+       let user = res.userInfo
+       this.setData({
+         canIUse: true,
+         userInfo: user,
+       })
+       user.openid = app.globalData.openid;
+       app._saveUserInfo(user);
+     },
+     fail: res => {
+       console.log("获取用户信息失败", res)
+     }
+   })
+ },
 
   // 点击跳转到订单页面
   toOrder:function(event){
@@ -71,29 +79,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     var _this = this
-   //   console.log(this)
-     // 查看是否授权
-     wx.getSetting({
-        success(res) {
-           if (res.authSetting['scope.userInfo']) {
-              // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-              wx.getUserInfo({
-                 success: function (res) {
-                     // console.log(res.userInfo)
-                    var nickName = res.userInfo.nickName
-                    var userUrl = res.userInfo.avatarUrl
-                    // 修改data里面的数据
-                    _this.setData({
-                       canIUse: false,
-                       userUrl: userUrl,
-                       nickName: nickName
-                    })
-                 }
-              })
-           }
-        }
-     })
+   var that = this;
+   var user = app.globalData.userInfo;
+   // if (user) {
+   //   // that.setData({
+   //   //  isShowUserName: true,
+   //   //  userInfo: user,
+   //   // })
+   // } else {
+   //   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+   //   // 所以此处加入 callback 以防止这种情况
+   //   app.userInfoReadyCallback = res => {
+   //     that.setData({
+   //       userInfo: res.userInfo,
+   //       isShowUserName: true
+   //     })
+   //   }
+   // }
   },
 
   /**
@@ -107,7 +109,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-     
+   var user = app.globalData.userInfo;
+   if (user && user.nickName) {
+     this.setData({
+       isShowUserName: true,
+       userInfo: user,
+     })
+   }
   },
 
   /**

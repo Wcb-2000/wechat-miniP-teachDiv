@@ -1,10 +1,10 @@
-<view class="btn" wx:if="{{canIUse}}">
-  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+<view class="btn" wx:if="{{!canIUse}}">
+  <button type="primary" bindtap="getUserProfile">授权登录</button>
 </view>
 <!-- 用户信息 -->
 <view class="userInfo" wx:else>
-  <image class="userurl" src="{{userUrl}}"></image>
-  <view class="nickname">{{nickName}}</view>
+  <image class="userurl" src="{{userInfo.avatarUrl}}"></image>
+  <view class="nickname">{{userInfo.realname?userInfo.realname:userInfo.nickName}}</view>
   <image bindtap="topic_preview" class="code" src="../../images/erweima.png" mode="widthFix"></image>
 </view>
 <!-- 用户信息 end -->

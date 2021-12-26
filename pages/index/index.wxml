@@ -10,7 +10,7 @@
             widthFix 让图片的标签宽高 和 图片内容的宽高都等比例发生变化 -->
     <swiper autoplay indicator-dots circular="{{true}}">
         <swiper-item wx:for="{{swiperList}}" wx:for-item="swip" wx:for-index="id" wx:key="*this">
-            <image class="" src="{{swip}}" mode="widthFix" lazy-load="false"></image>
+            <image class="" src="{{swip.picUrl}}" mode="widthFix" lazy-load="false"></image>
         </swiper-item>
     </swiper>
 </view>
@@ -31,7 +31,7 @@
 <View></View>
 <view>
     <video style="width: 100%;height=400px;margin:1px;"
-        src="https://ugcbsy.qq.com/uwMROfz2r57IIaQXGdGnC2ddPkapmRpMlD28zVR608vDOfeG/szg_31939183_50001_ee0a92446dc34e78b40b801cc098e43f.f622.mp4?sdtfrom=v1010&guid=9e59f3a524d60be070f1ffb168eb97fd&vkey=D17FEA24B438F8FC17FF515D1BF0BE9AFB7AC4D5A3C0CD1BC45AE962AFF8D6FAB1D21363E326AC0BF9042AA78759DF11CC3DA614C669F4515C37F14270D6ECAE073848418F125E8590080E42204580BA48A54FD513B6A6CB51FD12F9D4702FA2B436652F140E8B4079C3BC38BF2775D3BD5D787CA9D9955B96EC23233D2C0ECC959308E79E85BF40"
+        src="{{index_video.index_video}}"
         binderror="videoErrorCallback"></video>
 </view>
 

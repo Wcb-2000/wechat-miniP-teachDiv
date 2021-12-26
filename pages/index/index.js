@@ -1,15 +1,15 @@
+const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    swiperList: [
-      "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01848f55686a9a00000127164123cc.jpg%401280w_1l_2o_100sh.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1625885201&t=7e7c170c66f47710eae1070cb9bec574",
-      "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01281255686a9a0000012716b13862.jpg%402o.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1625885295&t=6176dff9cbd15939a1ab331deab45966",
-      "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi03.c.aliimg.com%2Fimg%2Fibank%2F2014%2F906%2F017%2F1564710609_448061728.jpg&refer=http%3A%2F%2Fi03.c.aliimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1625885571&t=a10619f40d115c54e7a089b27a45f18c",
-      "https://gss0.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/w=580/sign=04b1bd4f71f082022d9291377bfafb8a/6d7124a4462309f739a8f47e700e0cf3d6cad656.jpg"
-    ],
+    // swiperList: [
+    //   "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01848f55686a9a00000127164123cc.jpg%401280w_1l_2o_100sh.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1625885201&t=7e7c170c66f47710eae1070cb9bec574",
+    //   "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01281255686a9a0000012716b13862.jpg%402o.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1625885295&t=6176dff9cbd15939a1ab331deab45966",
+    //   "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi03.c.aliimg.com%2Fimg%2Fibank%2F2014%2F906%2F017%2F1564710609_448061728.jpg&refer=http%3A%2F%2Fi03.c.aliimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1625885571&t=a10619f40d115c54e7a089b27a45f18c",
+    //   "https://gss0.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/w=580/sign=04b1bd4f71f082022d9291377bfafb8a/6d7124a4462309f739a8f47e700e0cf3d6cad656.jpg"
+    // ],
     imgHei: "",
     lists: [
       "https://img.alicdn.com/imgextra/i4/166965498/O1CN01OfEBQW1qU8ApTDmL1_!!166965498.jpg",
@@ -168,9 +168,37 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getTopBanner() //请求顶部轮播图
+    this.getIndexVideo() //请求中间的视频
   },
-
+//获取首页顶部轮播图
+  getTopBanner() {
+    wx.cloud.database().collection("lunbotu")
+      .get()
+      .then(res => {
+        console.log("首页banner成功", res.data)
+        if (res.data && res.data.length > 0) {
+          //如果后台配置轮播图就用后台的，没有的话就用默认的
+          this.setData({
+            swiperList: res.data
+          })
+        }
+      }).catch(res => {
+        console.log("首页banner失败", res)
+      })
+  },
+  getIndexVideo() {
+    wx.cloud.database().collection("index_video")
+      .get()
+      .then(res => {
+        console.log("首页video成功", res.data[0])
+          this.setData({
+            index_video: res.data[0]
+          })
+      }).catch(res => {
+        console.log("首页video失败", res)
+      })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

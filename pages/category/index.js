@@ -415,18 +415,17 @@ Page({
         ]
       }
     ],
-
     height: 0,
     //导航栏下标值
     navIndex: 0,
     // //左侧导航距离顶部的距离
     // scrollTopList: 0,
+    // 分类相关
+    cateArr: [],
     //右侧内容对应的下标值
     contentIndex: 0,
     //左边导航距离顶部位置
     leftScrollTop: 0
-
-
   },
 
   // 点击跳转到订单页面
@@ -436,13 +435,72 @@ Page({
       url: '/pages/teach/teach',
     })
   },
+
+  //获取分类数据
+  getCateList(action, searchKey) {
+    //获取购物车商品
+    let cartList = wx.getStorageSync('cart') || [];
+    wx.cloud.callFunction({
+      name: "getCateList",
+      data: {
+        action: action,
+        searchKey: searchKey
+      }
+    }).then(res => {
+      let dataList = res.result.data;
+      console.log("分类数据", res)
+      //遍历1,并把购物车购买数量填充进来
+      dataList.forEach(food => {
+        food.quantity = 0;
+        cartList.forEach(cart => {
+          if (cart._id == food._id) {
+            food.quantity = cart.quantity ? cart.quantity : 0;
+          }
+        })
+      });
+      //遍历2，进行分类
+      // arr 传过来的原数组
+      let tempArr = [];
+      let endData = [];
+      dataList.forEach(item => {
+        if (tempArr.indexOf(item.fenlei) === -1) {
+          endData.push({
+            title: item.fenlei,
+            list: [item]
+          });
+          tempArr.push(item.fenlei);
+        } else {
+          for (let j = 0; j < endData.length; j++) {
+            if (endData[j].title == item.fenlei) {
+              endData[j].list.push(item);
+              break;
+            }
+          }
+        }
+      })
+      //过滤数组，添加id
+      endData.map((item, index) => {
+        item.id = index
+      })
+      console.log('过滤后', endData)
+      this.setData({
+        cartList: cartList,
+        cateArr: endData,
+      })
+      // this.getTotalPrice()
+      // this.getHeightArr()
+    }).catch(res => {
+      console.log("菜品数据请求失败", res)
+    })
+  },
+
   //左边导航的点击事件
   leftNavIndex: function (event) {
-    var index = event.target.dataset.index
+    var index = event.target.dataset.id
     this.setData({
       navIndex: index,
       contentIndex: index,
-      leftScrollTop: 50 * (index - 4)
+      leftScrollTop: (index - 4)
     })
   },
 
@@ -451,7 +509,7 @@ Page({
     //右边整体内容距离顶部的高度，初始化高度
     var hei = 0
     //获取右边商品数据
-    var list = this.data.list
+    var list = this.data.cateArr
     for (let i = 0; i < list.length; i++) {
       //获取id为#scroll-的节点元素,节点信息
       wx.createSelectorQuery().select('#scroll-' + i).fields({
@@ -464,7 +522,7 @@ Page({
           list[i].top = hei
           //将当前元素的高度和距离顶的位置相加
           //强制转换去掉浮点数
-          hei += parseInt(res.height + 50)
+          hei += parseInt(res.height)
           //元素底部距离顶部的高度
           list[i].bottom = hei
           // console.log(hei)
@@ -483,7 +541,7 @@ Page({
       if (scrollTop >= list[i].top && scrollTop < list[i].bottom) {
         this.setData({
           navIndex: i,
-          leftScrollTop: 50 * (i - 4)
+          leftScrollTop: (i - 4)
         })
       }
     }
@@ -493,8 +551,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function (e) {
+    if (e.searchKey) {
+      //搜索菜品
+      this.getCateList('search', e.searchKey)
+    } else {
+      //获取菜品数据
+      this.getCateList('getAll')
+    }
   },
 
   /**
@@ -508,7 +572,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var list = this.data.list
+    console.log(this.data)
+    var list = this.data.cateArr
     // 先定义初始高度和距离顶部的高度数据
     var height = 0
     var scrollTopList = []
