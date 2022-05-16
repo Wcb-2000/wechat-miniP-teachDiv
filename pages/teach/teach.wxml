@@ -1,43 +1,43 @@
 <view class="goodItem" wx:for="{{detailList}}" wx:key="*this">
+        <!-- <view>{{list.title}}</view> -->
     <view>
-        <video style="width: 100%;height=400px;margin:1px;"
-            src="https://ugcws.video.gtimg.com/uwMROfz2r57EIaQXGdGnC2ddPkbJGtsAgoBvmE0AUZXs_hLe/szg_56299042_50001_9bd60fff3a3848899f355755e33cbcd9.f622.mp4?sdtfrom=v1010&guid=9e59f3a524d60be070f1ffb168eb97fd&vkey=D9EC43C3500FCBD668AD92E404955DF6F5A1FA4E261AECD3D5A54CB9D73152CC3944FC8DE49B4DB2CAE4737E87F1784A29A3B02B313BD976559D3B4F81752D7DFC318D72CDD083CE613CD66FF9E8FB790086DC414B953031D553C7AB33B228E077A8E2EE218B00D6D83F1693C02926D5A819C8D95A09BF4ED247F1868460DD67712D014407E07E11"
-            binderror="videoErrorCallback"></video>
-    </view>
-    <view>刺绣系列教学视频</view>
-    <image src="//g-search1.alicdn.com/img/bao/uploaded/i4/imgextra/i1/834970155/O1CN01C3tdv41D124nLVrbQ_!!0-saturn_solar.jpg_180x180.jpg_.webp" mode="widthFix"></image>
-    <view class="title">刺绣令牌</view>
-    <view class="desc">送男友送女友必备</view>
-    <view class="price">
-        <text class="new">详情请看视频</text>
-        <text></text>
-        <!-- <text class="old">材料链接</text> -->
-    </view>
+        <video id="myVideo" bindfullscreenchange="fullScreen" style="width: 100%;margin:1px;" src="{{list.video}}" binderror="videoErrorCallback"></video>
+     </view>
+        <view class="title">{{list.name}}</view>
+        <view class="desc">
+            <text decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;{{list.text}}</text>
+        </view>
+        <image src="{{list.icon}}" mode="widthFix"></image>
+        <view class="line"></view>
+        <view class="price">
+            <view class="toPay" bindtap="topay"  data-id="{{list._id}}">购买材料...</view>
+            <text></text>
+            <!-- <text class="old">材料链接</text> -->
+        </view>
+        <view class="testtt">
+            <view>
+                <image src="../../images/index.png" mode="widthFix" bindtap="toIndex"></image>
+                <view class="text">首页</view>
+            </view>
+            <view>
+                <image src="{{collectListImg}}" mode="widthFix" bindtap="collect"></image>
+                <view class="text">{{collectListText}}</view>
+            </view>
+        </view>
 </view>
 <!-- 底部 -->
-<view class="down">
-    <view class="left">
-        <view>
-            <image src="../../images/index.png" mode="widthFix" bindtap="toIndex"></image>
-            <view class="text">首页</view>
-        </view>
-
-        <view>
+<!-- <view class="down">
+    <view class="left"> -->
+        <!-- <view>
             <image src="../../images/gouwuche.png" mode="widthFix" bindtap="toCart"></image>
             <view class="text">购物车</view>
             <!-- 当商品数量为0时 右上角数量隐藏 -->
-            <view class="num" wx:if="{{totalNum !=0}}">{{totalNum}}</view>
-        </view>
-        
-        <view>
-            <image src="{{collectListImg}}" mode="widthFix" bindtap="collect"></image>
-            <view class="text">{{collectListText}}</view>
-        </view>
-    </view>
+            <!-- <view class="num" wx:if="{{totalNum !=0}}">{{totalNum}}</view>
+        </view> -->   
+    <!-- </view>
     <view class="right">
-        <view class="addCar" bindtap="collect">加入收藏</view>
-        <view class="toPay" bindtap="topay">购买材料</view>
-    </view>
-
-</view>
+        <!-- <view class="addCar" bindtap="collect">加入收藏</view>
+        <view class="toPay" bindtap="topay">购买材料</view> -->
+    <!-- </view>
+</view> -->
 <!-- 底部end -->

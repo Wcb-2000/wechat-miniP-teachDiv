@@ -8,6 +8,7 @@ const db = cloud.database()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
+  const wxContext = cloud.getWXContext()
   if (event.action == 'search' && event.searchKey) { //搜索菜品
     return await db.collection('food').where({
       name: db.RegExp({
@@ -23,6 +24,11 @@ exports.main = async (event, context) => {
       .orderBy('sell', 'desc')
       .limit(5)
       .get()
+  } else if(event.action == 'getDetail'){
+    return await db.collection("food")
+    .where({
+      _id: event._id
+    }).get()
   } else { //获取100条菜品
     return await db.collection('food')
       .where({

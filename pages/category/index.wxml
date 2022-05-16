@@ -14,7 +14,7 @@
     <view class="rightContent" wx:for="{{cateArr}}" wx:key="index" id="scroll-{{index}}">
       <view class="title">/ {{item.title}} /</view>
       <view class="good" wx:for="{{item.list}}" wx:key="index" wx:for-item="good">
-        <image src="{{good.icon}}" mode="widthFix" bindtap="toTeach"></image>
+        <image src="{{good.icon}}" mode="widthFix" data-id="{{good._id}}" bindtap="toTeach"></image>
         <view class="text">{{good.name}}</view>
       </view>
     </view>

@@ -1,4 +1,5 @@
 // pages/detail/index.js
+var app = getApp()
 Page({
 
   /**
@@ -20,8 +21,10 @@ Page({
 
     //定义收藏图片
     collectListImg: "../../images/favorite.png",
-    collectListText: "收藏"
-
+    collectListText: "收藏",
+    // 根据id获取对应详情
+    id: '',
+    list: []
   },
 
   //跳转到首页
@@ -128,11 +131,38 @@ Page({
     })
     
   },
+
+  getMyOrderList() {
+    console.log(this.data);
+    let openid = app._checkOpenid();
+    if (!openid) {
+      return;
+    }
+    wx.cloud.callFunction({
+        name: 'getCateList',
+        data: {
+          action: 'getDetail',
+          // _id: this.data.id
+          _id: "133e253361bf5bef0119cb2f59604cb2"
+        }
+      })
+      .then(res => {
+        console.log("我的订单列表", res)
+        this.setData({
+          list: res.result.data[0]
+        })
+      }).catch(res => {
+        console.log("我的订单列表失败", res)
+      })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options);
+    this.setData({
+      id: options.id
+    })
   },
 
   /**
@@ -184,6 +214,7 @@ Page({
       collectListText
     })
 
+    this.getMyOrderList();
   },
 
   /**

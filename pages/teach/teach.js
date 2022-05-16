@@ -1,4 +1,5 @@
 // pages/detail/index.js
+var app = getApp()
 Page({
 
   /**
@@ -20,7 +21,11 @@ Page({
 
     //定义收藏图片
     collectListImg: "../../images/favorite.png",
-    collectListText: "收藏"
+    collectListText: "收藏",
+
+    // 根据id获取对应详情
+    id: '',
+    list: [],
 
   },
   //跳转到首页
@@ -118,12 +123,15 @@ Page({
     })
   },
   // 立即购买点击事件
-  topay: function () {
+  topay: function (event) {
+    console.log(event);
+    var id = event.target.dataset.id
     //将当前数据放到用户结算的缓存数据中
     wx.setStorageSync('settlementList', this.data.detailList)
     //页面跳转
     wx.navigateTo({
-      url:'../settlement/settlement?id=1',
+      // url:'../settlement/settlement?id=1',
+      url: '/pages/detail/index?id='+id,
     })
     
   },
@@ -131,7 +139,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      id: options.id
+    })
   },
 
   /**
@@ -183,8 +193,43 @@ Page({
       collectListText
     })
 
+    this.getMyOrderList();
   },
 
+  fullScreen(e) {
+    let fullScreen = e.detail.fullScreen
+    console.log(fullScreen);
+    // 视频设置全屏
+    // let videoContext = wx.createVideoContext('myVideo')
+    // videoContext.requestFullScreen({ direction: 90 });
+    console.log('111');
+  },
+
+  getMyOrderList() {
+    console.log(this.data);
+    let openid = app._checkOpenid();
+    if (!openid) {
+      return;
+    }
+    wx.cloud.callFunction({
+        name: 'getCateList',
+        data: {
+          action: 'getDetail',
+          _id: this.data.id
+        }
+      })
+      .then(res => {
+        console.log("我的订单列表", res)
+        this.setData({
+          list: res.result.data[0]
+        })
+        wx.setNavigationBarTitle({
+          title: this.data.list.title
+        })
+      }).catch(res => {
+        console.log("我的订单列表失败", res)
+      })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

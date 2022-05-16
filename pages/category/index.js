@@ -425,14 +425,16 @@ Page({
     //右侧内容对应的下标值
     contentIndex: 0,
     //左边导航距离顶部位置
-    leftScrollTop: 0
+    leftScrollTop: 0,
+    hotPage: 0
   },
 
   // 点击跳转到订单页面
   toTeach: function (event) {
-    var index = event.target.dataset.index
+    console.log(event);
+    var id = event.target.dataset.id
     wx.navigateTo({
-      url: '/pages/teach/teach',
+      url: '/pages/teach/teach?id='+id,
     })
   },
 
@@ -590,8 +592,25 @@ Page({
     }
     this.setData({
       height: wx.getSystemInfoSync().windowHeight,
-      scrollTopList
+      scrollTopList,
+      hotPage: wx.getStorageSync('hotPage')
     })
+    console.log(this.data);
+    var index = this.data.hotPage
+    if(this.data.hotPage){
+      this.setData({
+        navIndex: index,
+        contentIndex: index,
+        leftScrollTop: (index - 4)
+      })
+      wx.clearStorage('hotPage')
+   } else {
+    this.setData({
+      navIndex: 0,
+      contentIndex: 0,
+      leftScrollTop: (0 - 4)
+    })
+   }
   },
 
   /**

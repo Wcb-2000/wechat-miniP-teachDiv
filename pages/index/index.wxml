@@ -16,8 +16,8 @@
 </view>
 <view class="list" hover-class="none">
     <view class="list1">
-        <block wx:for="{{lists}}" wx:key="*this">
-            <image class="list2" src="{{item}}" mode="widthFix" lazy-load="false" bindtap="toTeach"></image>
+        <block wx:for="{{lists}}" wx:key="id" wx:for-index="id">
+            <image class="list2" src="{{item.image}}" mode="widthFix" data-id="{{id}}" lazy-load="false" bindtap="toTeach"></image>
         </block>
     </view>
 </view>
@@ -32,7 +32,7 @@
 <view>
     <video style="width: 100%;height=400px;margin:1px;"
         src="{{index_video.index_video}}"
-        binderror="videoErrorCallback"></video>
+        binderror="videoErrorCallback" :autoplay=""></video>
 </view>
 
 <!-- 商品 -->

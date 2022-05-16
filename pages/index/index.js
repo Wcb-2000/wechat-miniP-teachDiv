@@ -12,10 +12,20 @@ Page({
     // ],
     imgHei: "",
     lists: [
-      "https://img.alicdn.com/imgextra/i4/166965498/O1CN01OfEBQW1qU8ApTDmL1_!!166965498.jpg",
-      "https://gd3.alicdn.com/imgextra/i3/2457441035/O1CN01xP7SDQ1JW4XEA8aIi_!!2457441035.jpg_400x400.jpg",
-      "https://gd4.alicdn.com/imgextra/i1/0/O1CN014rAHrR1hy3ZYWiq9d_!!0-item_pic.jpg",
-      "https://img.alicdn.com/imgextra/i2/3907876683/O1CN01DWaRHF1zErTmVGUX2_!!3907876683.jpg_430x430q90.jpg",
+      {
+        id: 1,
+        image: "https://img.alicdn.com/imgextra/i4/166965498/O1CN01OfEBQW1qU8ApTDmL1_!!166965498.jpg"
+      },
+      {
+        id: 2,
+        image: "https://gd3.alicdn.com/imgextra/i3/2457441035/O1CN01xP7SDQ1JW4XEA8aIi_!!2457441035.jpg_400x400.jpg"
+      },
+      { id: 3,
+        image: "https://gd4.alicdn.com/imgextra/i1/0/O1CN014rAHrR1hy3ZYWiq9d_!!0-item_pic.jpg"
+      },
+      { id: 4,
+        image: "https://img.alicdn.com/imgextra/i2/3907876683/O1CN01DWaRHF1zErTmVGUX2_!!3907876683.jpg_430x430q90.jpg"
+      }
     ],
     //定义商品数据
     selectList: [{
@@ -90,9 +100,12 @@ Page({
 
      // 点击跳转到教学页面
      toTeach: function (event) {
-      var index = event.target.dataset.index
-      wx.navigateTo({
-        url: '/pages/teach/teach',
+      var index = event.target.dataset.id
+      console.log(event);
+      //修改数据缓存 添加到缓存数据中
+      wx.setStorageSync('hotPage', index)
+      wx.switchTab({
+        url: '/pages/category/index',
       })
     },
     
@@ -114,6 +127,7 @@ Page({
   //点击跳转详情页
   toDetails: function (event) {
     //获取当前数据下标值
+    console.log(event);
     var id = event.target.dataset.id
     //获取当前商品数组
     var goodList = this.data.selectList[0].goodList

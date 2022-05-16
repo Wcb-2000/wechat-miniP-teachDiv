@@ -7,15 +7,42 @@
   margin-bottom: 50px;
 }
 .goodItem image{
-  margin-top: 50rpx;
   width: 80%;
 }
-.goodItem title{
+.goodItem .title{
   font-size: 18px;
-  margin: 10px 0;
+  line-height: 74rpx;
+}
+.goodItem .line {
+  margin: 20rpx 20rpx;
+  border-bottom: 1px solid gray;
+}
+.goodItem .testtt{
+  /* top: -1rpx; */
+  position: absolute;
+  height: 22rpx;
+  float: left;
+  width: 40%;
+  text-align: left;
+  font-size: 25rpx;
+  margin-left: 20rpx;
+}
+.goodItem .testtt>view{
+  width: 33.33%;
+  float: left;
+  position: relative;
+  /* relative与absolute需要配合使用 没有relative数字框会跑动 */
+}
+.goodItem .testtt>view image{
+  width: 50%;
 }
 .goodItem .desc{
+  font-size: 16px;
+  margin: 5rpx 20rpx 30rpx;
+  border: 1px solid gray;
   color:black;
+  text-align: start;
+  background-color: #F0C35A;
 }
 .goodItem .price{
   margin: 10px 0;
@@ -80,8 +107,14 @@
   float: left;
   background: linear-gradient(to right,#F0C35A,#ff9a04);
 }
-.down .right .toPay{
-  width: 50%;
-  float: left;
-  background: linear-gradient(to right,#f97a04,#fd5c29);
+.goodItem .price .toPay{
+  float: right;
+  margin-right: 20rpx;
+  overflow: hidden;
+  display: inline;
+  line-height: 30px;
+  text-align: right;
+  color: gray;
+  text-decoration-line: underline;
+  line-height: 120rpx;
 }
